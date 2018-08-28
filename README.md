@@ -1,25 +1,29 @@
 # python_heroku_tut
 sign up for heroku account
 
-install heroku cli
+# install heroku cli
+test installation with:
+  heroku login
 
-install python
+# install python
 
-install pipenv
+# install pipenv
 
-[
-make virtual env 
+## optional
+  make virtual env 
+  pipenv lock
 
-pipenv lock]
+# make new heroku project
+heroku create
 
-clone repo
+# clone repo
 
-create database add-on
+# create database add-on
 
-add adminimum add-on
+# add adminimum add-on
 
-import data
+# import data
 
-change config file
+# change config.py file
 
-
+# deploy
