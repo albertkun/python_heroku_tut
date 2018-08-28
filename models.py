@@ -2,6 +2,7 @@
 from peewee import *
 from flask import session
 from playhouse.dataset import DataSet
+from playhouse.postgres_ext import *
 
 
 from config import Config

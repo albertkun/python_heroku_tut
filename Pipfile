@@ -6,10 +6,24 @@ name = "pypi"
 [dev-packages]
 
 [packages]
-flask = "*"
-gunicorn = "*"
-peewee = "*"
-"psycopg2" = "*"
+gunicorn = "==19.7.1"
+peewee = "==3.6.4"
+"psycopg2" = "==2.7.5"
+certifi = "==2018.4.16"
+chardet = "==3.0.4"
+click = "==6.7"
+idna = "==2.6"
+itsdangerous = "==0.24"
+requests = "==2.18.4"
+simplejson = "==3.13.2"
+six = "==1.11.0"
+"urllib3" = "==1.22"
+Flask = "==1.0.2"
+Flask-WTF = "==0.14.2"
+"Jinja2" = "==2.10"
+MarkupSafe = "==1.0"
+Werkzeug = "==0.14.1"
+WTForms = "==2.1"
 
 [requires]
 python_version = "2.7"
