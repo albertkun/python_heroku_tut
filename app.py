@@ -13,7 +13,7 @@ app.config['SECRET_KEY'] = 'secret'
 def index():
     
     # data = new_table
-    data = db['data']
+    data = EarthQuake.select()
 
     map_center = [37.770715, -122.433421]
     return render_template('index.html',geodata=data,centerLatlon=map_center)
