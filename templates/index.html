@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+	<title>Flask Map</title>
+
+	<header>
+		<div>
+			<p><b style="font-size: 36px">Flask Map</b> A template for getting your maps on the web.<a href="/host"><button type="button" class="add-data">Add data</button></a></p>
+		</div>
+	</header>
+
+
+
+<div class="body" id="mapid" style="width: 100%; height: 400px;"></div>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../static/css/leaflet.css"/>
+<script src="../static/js/leaflet.js"></script>
+
+
+<script>
+
+	var mapCoords = [0,0]
+	var map = L.map('mapid').setView(mapCoords, 2);
+	L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+	}).addTo(map);
+
+	function addMarker(name,lat,lon){
+	// Add marker to map at click location; add popup window
+		//console.log(markerData.lat,markerData.lon);
+
+		colors = {
+			default: "#AF1E23"
+		}
+		var markerIcon = L.icon({
+			iconUrl: '../static/img/marker.png',
+		
+			iconSize:     [5, 5], // size of the icon
+			iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+			popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+		});
+
+		markerOptions=
+				{
+                    radius: 1,
+                    icon: markerIcon,
+                    color: "red",
+                    weight: 1
+                }
+		L.marker([lat,lon],markerOptions).bindPopup("<b>"+name+"</b>").addTo(map);
+	}
+	var popup = L.popup();
+	var alldata = []
+
+	
+	{% for data in geodata %}
+		
+		markerData ={
+			lat: {{data.latitude}},
+			lon: {{data.longitdue}},
+			name: "{{data.name}}",
+		}
+		alldata.push(markerData)
+		
+	{% endfor %}
+	console.log(alldata)	
+	for (var value of alldata) {
+		addMarker(value.name,value.lat,value.lon);
+	  }
+	//
+</script>
+
+	
+
+
+{% endblock %}
