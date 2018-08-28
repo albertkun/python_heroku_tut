@@ -12,7 +12,8 @@ app.config['SECRET_KEY'] = 'secret'
 @app.route('/')
 def index():
     
-    # data = new_table
+    # data EarthQuake
+    
     data = EarthQuake.select()
 
     map_center = [37.770715, -122.433421]
